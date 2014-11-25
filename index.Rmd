@@ -1,0 +1,73 @@
+---
+title       : Developing Data Products
+subtitle    : Course Project
+author      : Thomas Antonakis
+job         : Grader
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, quiz]        # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Thomas Antonakis
+
+- Hello everyone, my name is Thomas Antonakis  
+- This is my slidify presentation for a shiny app that I created
+- The app is really simple, but very helpful to my wife who is an english teacher.
+- She grades tons of tests each weekend but she does not really get numbers.
+- I love her very much, so I created a Test Grader for her!  
+- Let's check it out!
+
+The app is submitted for grading in the Coursera on line course of Developing Data products  you can find it here:  
+
+[Grader Shiny app](http://thomasantonakis.shinyapps.io/ddp_cp/)
+
+--- .class #id 
+
+
+## Background story
+
+Grades in Greece are mostly given in "out of 20" form, and in our minds, the "letter" grading scale is converted to and from the "out of 20" scale.  
+
+So, simple as that we only have to adjust the input texts on the left to the correct numbers of:
+
+- correct numbers
+- number of questions
+
+and the app does all the rest.
+
+--- .class #id 
+## Slide 4
+
+The code that is behind this very simple app is the following:
+```{r code1}
+# Create Database
+grader<- data.frame("outof20"= c(20:8), 
+                                    "sign" =  as.character(c("A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"))) 
+
+# What is my grade if i score 20 out of 20?
+as.character(grader$sign[grader$outof20 == 20])
+# What is my grade if i score 17 out of 20?
+as.character(grader$sign[grader$outof20 == 17])
+
+```
+
+---  &radio
+
+## Wrap - Up
+
+Did you like my app?
+
+1. Kinda
+2. _That was awesome!_
+3. Meh
+4. Dude, what was that?
+
+
+*** .hint 
+Please choose awesome!
+
+*** .explanation
+Of course it was awesome!
